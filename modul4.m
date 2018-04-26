@@ -91,10 +91,10 @@ function dilasi_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to dilasi_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    gambar = getappdata(handles.btn_open,'gambar_saved');
-    bin = im2bw(gambar,graythresh(gambar));
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    %bin = im2bw(bin,graythresh(bin));
     sq = ones(3,3);
-    citra_hasil = imdilate(gambar,sq);    
+    citra_hasil = imdilate(bin,sq);    
     axes(handles.axes2);
     imshow(citra_hasil);
     
@@ -104,10 +104,10 @@ function erosi_Callback(hObject, eventdata, handles)
 % hObject    handle to erosi (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    gambar = getappdata(handles.btn_open,'gambar_saved');
-    bin = im2bw(gambar,graythresh(gambar));
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    %bin = im2bw(bin,graythresh(bin));
     sq = ones(3,3);
-    citra_hasil = imerode(gambar,sq);    
+    citra_hasil = imerode(bin,sq);    
     axes(handles.axes3);
     imshow(citra_hasil);
 
@@ -116,8 +116,8 @@ function opening_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to opening_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    gambar = getappdata(handles.btn_open,'gambar_saved');
-    bin = im2bw(gambar,graythresh(gambar));
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    %bin = im2bw(bin,graythresh(bin));
     sq = ones(3,3);
     citra_erosi = imerode(bin,sq);
     citra_hasil = imdilate (citra_erosi, sq);
@@ -129,8 +129,8 @@ function closing_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to closing_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    gambar = getappdata(handles.btn_open,'gambar_saved');
-    bin = im2bw(gambar,graythresh(gambar));
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    %bin = im2bw(bin,graythresh(bin));
     sq = ones(3,3);
     citra_dilasi = imdilate(bin,sq);
     citra_hasil = imerode (citra_dilasi, sq);
@@ -142,8 +142,8 @@ function thining_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to thining_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    gambar = getappdata(handles.btn_open,'gambar_saved');
-    bin = im2bw(gambar,graythresh(gambar));
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    bin = im2bw(bin,graythresh(bin));
     citra_hasil = bwmorph(bin,'thin',Inf);
     axes(handles.axes2);
     imshow(citra_hasil);
@@ -153,8 +153,8 @@ function sobel_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to sobel_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    gambar = getappdata(handles.btn_open,'gambar_saved');
-    bin = im2bw(gambar,graythresh(gambar));
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    bin = im2bw(bin,graythresh(bin));
     sHor = edge(bin,'sobel','horizontal');
         axes(handles.axes2);
         imshow(sHor);
@@ -170,8 +170,8 @@ function prewitt_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to prewitt_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    gambar = getappdata(handles.btn_open,'gambar_saved');
-    bin = im2bw(gambar,graythresh(gambar));
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    bin = im2bw(bin,graythresh(bin));
     pHor = edge(bin,'prewitt','horizontal');
         axes(handles.axes2);
         imshow(pHor);
@@ -187,8 +187,8 @@ function robert_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to robert_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    gambar = getappdata(handles.btn_open,'gambar_saved');
-    bin = im2bw(gambar,graythresh(gambar));
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    bin = im2bw(bin,graythresh(bin));
     rHor = edge(bin,'roberts','horizontal');
         axes(handles.axes2);
         imshow(rHor);
@@ -205,8 +205,8 @@ function canny_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to canny_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    gambar = getappdata(handles.btn_open,'gambar_saved');
-    bin = im2bw(gambar,graythresh(gambar));
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    bin = im2bw(bin,graythresh(bin));
     canny = edge(bin,'canny');
     axes(handles.axes2);
     imshow(canny);
@@ -216,8 +216,8 @@ function log_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to log_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    gambar = getappdata(handles.btn_open,'gambar_saved');
-    bin = im2bw(gambar,graythresh(gambar));
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    bin = im2bw(bin,graythresh(bin));
     log = edge(bin,'log');
     axes(handles.axes3);
     imshow(log);
@@ -227,14 +227,40 @@ function region_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to region_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+    gambar = getappdata(handles.btn_open,'gambar_saved');
+    gambar = double(im2bw(gambar));
+    s=255;
+    t=65;
+    if numel(s)==1
+        si=gambar==s;
+        s1=s;
+    else
+        si=bwmorph(s,'shrink',Inf);
+        j=find(si);
+        s1=gambar(j);
+    end
+    ti=false(size(gambar));
+    for k=1:length(s1)
+        sv=s1(k);
+        s=abs(gambar-sv)<=t;
+        ti=ti|s;
+    end
+    [g nr]=bwlabel(imreconstruct(si,ti));
+    %Lrgb = label2rgb(g, 'spring' ,'c','shuffle');
+    axes(handles.axes2);
+    imshow(g);
 
 % --- Executes on button press in water_btn.
 function water_btn_Callback(hObject, eventdata, handles)
 % hObject    handle to water_btn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+    bin = getappdata(handles.btn_open,'gambar_saved');
+    bin = im2bw(bin,graythresh(bin));
+    water = watershed(bin);
+    Lrgb = label2rgb(water, 'spring' ,'c','shuffle');
+    axes(handles.axes3);
+    imshow(Lrgb);
     
 % --- Executes on button press in exit_btn.
 function exit_btn_Callback(hObject, eventdata, handles)
